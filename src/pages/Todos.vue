@@ -1,28 +1,39 @@
 <template>
   <div class="container">
     <h1>new subject</h1>
+
     <form @submit.prevent="addTodo()" class="form">
-        <label>add your subject</label>
-        <input
-        v-model="newTodo"
-        name="newTodo"
-        autocomplete="off">
-        <button>Add</button>
+      <label for="subject">add your subject</label>
+      <input
+      id="subject"
+      class="subject"
+      v-model="newTodo">
+      <input type="submit" class="submit btn" value="add">
     </form>
+
     <h2 class="subline">subjects List</h2>
     <ul class="todos">
-        <li
-        v-for="(todo, index) in todos"
-        :key="index"
-        class="todo-item">
-            <span
-            :class="{ done: todo.done }"
-            @click="doneTodo(todo)"
-            >{{ todo.content }}</span>
-            <button @click="removeTodo(index)" class="btn-remove">Remove</button>
-        </li>
+      <li
+      v-for="(todo, index) in todos"
+      :key="index"
+      class="todo-item">
+        <span
+        :class="{ done: todo.done }"
+        @click="doneTodo(todo)"
+        v-text="todo.content"
+        ></span>
+        <div class="todo-item-btn">
+          <button
+          @click="editTodo(index)"
+          class="btn-remove btn">edit</button>
+          <button
+          @click="removeTodo(index)"
+          class="btn-remove btn">Remove</button>
+        </div>
+      </li>
     </ul>
-  <h4 v-if="todos.length === 0">Empty list.</h4>
+
+    <h4 v-if="todos.length === 0">Empty list.</h4>
   </div>
 </template>
 
@@ -30,51 +41,47 @@
 import { ref } from 'vue';
 const newTodo = ref('');
 
-const defaultData = [{
-    done: false,
-    content: 'Write a blog post'
-}];
+const todosData = JSON.parse(localStorage.getItem('todos'));
 
-const todosData = JSON.parse(localStorage.getItem('todos')) || defaultData;
 const todos = ref(todosData);
+
 function addTodo () {
-    if (newTodo.value) {
-        todos.value.push({
-            done: false,
-            content: newTodo.value
-        });
-        newTodo.value = '';
-    }
-    saveData();
+  if (newTodo.value.trim()) {
+    todos.value.push({
+      done: false,
+      content: newTodo.value
+    });
+    newTodo.value = '';
+  }
+  saveData();
 }
+
 function doneTodo (todo) {
-    todo.done = !todo.done
-    saveData();
+  todo.done = !todo.done
+  saveData();
 }
+
 function removeTodo (index) {
-    todos.value.splice(index, 1);
-    saveData();
+  todos.value.splice(index, 1);
+  saveData();
 }
+
+function editTodo (index) {
+  newTodo.value = todos.value[index].content;
+  removeTodo(index);
+  saveData();
+}
+
 function saveData () {
-    const storageData = JSON.stringify(todos.value);
-    localStorage.setItem('todos', storageData);
+  const storageData = JSON.stringify(todos.value);
+  localStorage.setItem('todos', storageData);
 }
-// return (
-//     todos,
-//     newTodo,
-//     addTodo,
-//     doneTodo,
-//     removeTodo,
-//     saveData
-// )
 </script>
 
 <style>
 .container {
-  width: 100%;
-  height: 100vh;
-  padding: 50px 100px !important;
-  background-color: #26292B;
+  width: min(90%,1000px);
+  min-height: calc(100vh - 60px);
 }
 .form {
   width: 100%;
@@ -92,7 +99,7 @@ function saveData () {
   left: 0;
   transform: translateX(-505);
 }
-.form input {
+.form .subject {
   width: max(100% , 400px);
   padding: 10px 8px;
   background-color: transparent;
@@ -101,30 +108,20 @@ function saveData () {
   color: white;
   font-family: inherit;
 }
-.form button {
-  padding: 6px 4px;
+.form .submit {
   margin-top: 10px;
-  border: 1px solid #000;
-  background-color: #A0A5D7;
   font-size: 18px;
-  border-radius: 5px;
-  font-family: inherit;
-  transition-duration: 0.3s;
-}
-.form button:hover {
-  background-color: transparent;
-  color: white;
-  border: 1px solid #6C7072;
 }
 .subline {
+  width: 100%;
   padding-bottom: 8px;
   position: relative;
-  align-self: flex-start;
+  text-align: left;
   font-size: 20px;
 }
 .subline::after {
     content: "";
-    width: max(100% , 400px);
+    width: 100%;
     border-top: 2px solid #A0A5D7;
     position: absolute;
     top: 100%;
@@ -140,19 +137,22 @@ function saveData () {
 }
 .todo-item {
   width: 90%;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   border: 1px solid #6C7072;
+  text-align: left;
+}
+.todo-item-btn {
+  display: flex;
+  column-gap: 2px;
+}
+.form .submit:hover {
+  background-color: #8389db;
 }
 .btn-remove {
-  padding: 1px 5px;
-  border: 1px solid #6C7072;
-  border-radius: 5px;
-  background-color: #A0A5D7;
-  color: black;
-  font-family: inherit;
   font-size: 12px;
   font-weight: bold;
 }

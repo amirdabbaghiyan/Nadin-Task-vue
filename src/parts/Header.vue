@@ -33,11 +33,11 @@
 .navbar {
     width: 100%;
     height: 60px;
+    background-color: #A0A5D7;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: #A0A5D7;
 }
 /* website logo */
 .website-logo {

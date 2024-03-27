@@ -48,7 +48,6 @@ if ( hours.value < 12 ){
   height: calc(100vh - 60px);
   background: url(../assets/images/bg-hero.jpg) no-repeat center center;
   background-size: cover;
-  filter: contrast(75%);
   font-size: 60px;
 }
 .hero-message {
