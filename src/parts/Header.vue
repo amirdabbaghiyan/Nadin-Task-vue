@@ -37,11 +37,12 @@
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: gray;
+    background-color: #A0A5D7;
 }
 /* website logo */
 .website-logo {
     height: 100%;
+    mix-blend-mode: overlay;
 }
 /* menu */
 .menu {
@@ -51,7 +52,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: blue;
+    background-color: #A0A5D7;
     z-index: -1;
     display: flex;
     flex-direction: column;
@@ -62,12 +63,13 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font: 15px "montserrat";
-    color: white;
+    color: black;
     transition-duration: 0.3s;
 }
 .menu-item-link:hover ,
 .active {
-    color: var(--primary-color);
+    background-color: #26292B;
+    color: white;
 }
 
 /* Responsive */

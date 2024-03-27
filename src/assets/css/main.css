@@ -33,12 +33,14 @@
 /* body */
 body,
 html {
-    background-color: var(--bg-color);
+    background-color: gray;
+    /* background-color: var(--bg-color); */
     /* scroll-behavior: smooth; */
     cursor: context-menu;
     text-align: center;
-    font-family: 'maven-medium', sans-serif;
+    font-family: 'Vollkorn', sans-serif;
     line-height: 1.5;
+    color: white;
 }
 #app {
     min-height: 100vh;
@@ -108,13 +110,23 @@ img::before {
 }
 
 /* container */
-.container {
+/* .container {
     width: min(100%,1250px);
     margin: 0 auto;
     padding: 30px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+} */
+.container {
+    padding: 130px 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 40px;
 }
 .container-sm {
     width: min(100%,800px);
@@ -157,12 +169,12 @@ img::before {
     transition-duration: var(--duration-time);
     color: var(--bg-color);
 }
-.btn-primary {
+/* .btn-primary {
     background-color: var(--primary-color);
-}
-.btn-primary:hover {
+} */
+/* .btn-primary:hover {
     background-color: var(--secondary-color);
-}
+} */
 .btn-secondary {
     background-color: var(--secondary-color);
     box-shadow: var(--shadow-primary);

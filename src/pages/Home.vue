@@ -1,6 +1,8 @@
 <template>
-  <h1>{{currentTime}}</h1>
-  <h2>good {{time}} {user}</h2>
+  <section class="hero container">
+    <h1 class="hero-clock">{{currentTime}}</h1>
+    <p class="hero-message">good {{time}} {user}</p>
+  </section>
 </template>
 
 <script setup>
@@ -41,5 +43,16 @@ if ( hours.value < 12 ){
 </script>
 
 <style>
-
+.hero {
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: url(../assets/images/bg-hero.jpg) no-repeat center center;
+  background-size: cover;
+  filter: contrast(75%);
+  font-size: 60px;
+}
+.hero-message {
+  font-size: 40px;
+  text-transform: capitalize;
+}
 </style>

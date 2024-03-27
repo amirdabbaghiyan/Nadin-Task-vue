@@ -10,13 +10,13 @@
   </main>
 
   <footer id="footer">
-    <Footer />
+    <!-- <Footer /> -->
   </footer>
 </template>
 
 <script setup>
 // components
 import Header from './parts/Header';
-import Footer from './parts/Footer';
+// import Footer from './parts/Footer';
 // import SiteLoader from './components/SiteLoader.vue';
 </script>
