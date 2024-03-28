@@ -33,7 +33,7 @@
 .navbar {
     width: 100%;
     height: 60px;
-    background-color: #A0A5D7;
+    background-color: #171717;
     position: sticky;
     top: 0;
     left: 0;
@@ -52,7 +52,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #A0A5D7;
+    background-color: #171717;
     z-index: -1;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font: 15px "montserrat";
-    color: black;
+    color: #C5C5C5;
     transition-duration: 0.3s;
 }
 .menu-item-link:hover ,

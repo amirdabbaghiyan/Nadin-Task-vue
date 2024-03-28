@@ -1,27 +1,30 @@
 <template>
-  <main>
+  <div class="container">
     <div class="card">
+      <!-- panel search city -->
       <div class="search">
         <input
-          v-model.lazy.trim="city"
-          placeholder="city name"
-          spellcheck="false"
-          autofocus
-        />
+        v-model.lazy.trim="city"
+        placeholder="city name"
+        spellcheck="false"
+        autofocus
+        class="card-search-panel"/>
       </div>
 
+      <!-- error -->
       <div v-if="error" class="error">
         <p>{{ error }}</p>
       </div>
 
+      <!-- weather info -->
       <div v-if="!error && data.city" class="weather">
-        <img class="icon" :src="data.icon" alt="" />
+        <img class="icon" :src="data.icon" alt="weather-icon" />
 
         <h1 class="temperature">{{ data.temperature }}°C</h1>
 
         <h2 class="city">{{ data.city }}</h2>
 
-        <div class="details">
+        <!-- <div class="details">
           <div class="detail">
             <img
               src="https://murphyslaw.github.io/hosted-assets/weather/humidity.png"
@@ -47,10 +50,10 @@
               <p>Wind</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup>
@@ -106,101 +109,66 @@ watch(city, async () => {
 </script>
 
 <style>
-:root {
-  font-family: Poppins, sans-serif;
-  text-align: center;
-  background: #222222;
-  color: #2c3e50;
+.container {
+  height: calc(100vh - 60px);
 }
-
-main {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .card {
   width: 90%;
   max-width: 470px;
-  color: #ffffff;
-  background: linear-gradient(135deg, #00feba, #5b548a);
-
-  padding-top: 2rem;
-  padding-right: 1rem;
-  padding-bottom: 2rem;
-  padding-left: 1rem;
-
-  border-radius: 1rem;
-  text-align: center;
+  padding: 40px 20px;
+  /* background: linear-gradient(135deg, #00feba, #5b548a); */
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
 }
-
-.search input {
-  border: 0;
-  border-radius: 1rem;
-  outline: 0;
-  color: #555555;
-  background: #ebfffc;
-
-  padding-top: 0.5rem;
-  padding-right: 1rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-
+.card-search-panel {
   width: 100%;
-
-  font-size: 1rem;
+  padding: 10px 8px;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
 }
-
 .weather .icon {
   width: 170px;
   margin-top: 2rem;
 }
-
 .weather .temperature {
   font-size: 5rem;
   font-weight: 500;
 }
-
 .weather .city {
   font-size: 2.5rem;
   font-weight: 400;
   margin-top: -1rem;
 }
-
-.details {
+/* .details {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-top: 3rem;
-
   padding-top: 0;
   padding-right: 1rem;
   padding-bottom: 0;
   padding-left: 1rem;
 }
-
 .details img {
   width: 40px;
 }
-
 .details .detail {
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
   text-align: left;
 }
-
 .details .detail .description {
   display: flex;
   flex-direction: column;
 }
-
 .details .detail .value {
   font-size: 1.5rem;
-}
-
+} */
 .error {
   text-align: left;
   margin-top: 1rem;
