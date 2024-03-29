@@ -1,22 +1,19 @@
 <template>
-  <section class="hero container">
-    <h1 class="hero-clock">{{currentTime}}</h1>
-    <p class="hero-message">good {{time}} {user}</p>
+  <section class="container">
+    <h1 class="home-clock" v-text="currentTime"></h1>
+    <p class="title-lg">good {{time}} {user}</p>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const hours = ref(new Date().getHours());
-const minutes = ref(new Date().getMinutes());
+const hours = ref();
+const minutes = ref();
 const time = ref();
+let currentTime = ref();
 
-hours.value < 10 ? hours.value = `0${hours.value}` : false;
-minutes.value < 10 ? minutes.value = `0${minutes.value}` : false;
-
-let currentTime = ref(`${hours.value}:${minutes.value}`);
-
+// clock
 const updateCurrentTime = () => {
   hours.value = new Date().getHours();
   minutes.value = new Date().getMinutes();
@@ -27,29 +24,28 @@ const updateCurrentTime = () => {
  currentTime.value = `${hours.value}:${minutes.value}`;
 };
 
+updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
 
+// message
 if ( hours.value < 12 ){
   time.value = 'morning';
 } else if ( hours.value < 13 ){
   time.value = 'noon';
 } else if ( hours.value < 18 ){
   time.value = 'afternoon';
-} else if ( hours.value < 21 ){
+} else if ( hours.value <= 20 ){
   time.value = 'evening';
-} else if ( hours.value > 21 ){
+} else if ( hours.value > 20 ){
   time.value = 'night';
 }
 </script>
 
-<style>
-.hero {
-  width: 100%;
-  height: calc(100vh - 60px);
-  font-size: 60px;
+<style scoped>
+.container {
+  justify-content: center;
 }
-.hero-message {
-  font-size: 40px;
-  text-transform: capitalize;
+.home-clock {
+  font-size: clamp(60px, 8vw, 120px);
 }
 </style>
