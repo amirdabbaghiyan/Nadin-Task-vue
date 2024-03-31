@@ -1,34 +1,34 @@
 <template>
     <nav class="navbar">
-    <a href="index.html" title="website logo" class="website-logo">
-        <picture>
-            <source media="(max-width:768px)" srcset="../assets/images/logo-sm.png">
-            
-            <img src="../assets/images/logo-lg.png" alt="nadin soft logo">
-        </picture>
-    </a>
-    <!-- menu -->
-    <ul class="menu">
-        <li class="menu-item">
-            <router-link active-class="active" :to="{name:'home'}" class="menu-item-link btn-primary">dashboard</router-link>
-        </li>
+        <a href="index.html" title="website logo" class="website-logo">
+            <picture>
+                <source media="(max-width:768px)" srcset="../assets/images/logo-sm.png">
+                
+                <img src="../assets/images/logo-lg.png" alt="nadin soft logo">
+            </picture>
+        </a>
+        <!-- menu -->
+        <ul class="menu">
+            <li class="menu-item">
+                <router-link active-class="active" :to="{name:'home'}" class="menu-item-link btn-primary">{{ $t("dashboard") }}</router-link>
+            </li>
 
-        <li class="menu-item">
-            <router-link active-class="active" :to="{name:'todos'}" class="menu-item-link btn-primary">todos</router-link>
-        </li>
+            <li class="menu-item">
+                <router-link active-class="active" :to="{name:'todos'}" class="menu-item-link btn-primary">todos</router-link>
+            </li>
 
-        <li class="menu-item">
-            <router-link active-class="active" :to="{name:'weather'}" class="menu-item-link btn-primary">weather</router-link>
-        </li>
+            <li class="menu-item">
+                <router-link active-class="active" :to="{name:'weather'}" class="menu-item-link btn-primary">{{ $t("weather") }}</router-link>
+            </li>
 
-        <li class="menu-item">
-            <router-link active-class="active" :to="{name:'profile'}" class="menu-item-link btn-primary">profile</router-link>
-        </li>
+            <li class="menu-item">
+                <router-link active-class="active" :to="{name:'profile'}" class="menu-item-link btn-primary">profile</router-link>
+            </li>
 
-        <li class="menu-item">
-            <router-link active-class="active" :to="{name:'lg'}" class="menu-item-link btn-primary">lg</router-link>
-        </li>
-    </ul>
+            <!-- <li class="menu-item">
+                <router-link active-class="active" :to="{name:'lg'}" class="menu-item-link btn-primary">lg</router-link>
+            </li> -->
+        </ul>
     </nav>
 </template>
 

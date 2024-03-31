@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h1 class="home-clock" v-text="currentTime"></h1>
-    <p class="title-lg">good {{time}} {{user}}</p>
+    <p class="title-lg">{{$t("good")}} {{time}} {{user}}</p>
   </section>
 </template>
 

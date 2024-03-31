@@ -1,11 +1,8 @@
 <template>
-  <h2>lg</h2>
+  <h1>lg</h1>
 </template>
 
 <script>
-export default {
-
-}
 </script>
 
 <style>
