@@ -24,6 +24,10 @@
         <li class="menu-item">
             <router-link active-class="active" :to="{name:'profile'}" class="menu-item-link btn-primary">profile</router-link>
         </li>
+
+        <li class="menu-item">
+            <router-link active-class="active" :to="{name:'lg'}" class="menu-item-link btn-primary">lg</router-link>
+        </li>
     </ul>
     </nav>
 </template>
@@ -33,20 +37,18 @@
 .navbar {
     width: 100%;
     height: 60px;
-    background: inherit;
     background-color: var(--secondary-color); 
 }
 /* website logo */
 .website-logo {
     height: 100%;
-    mix-blend-mode: overlay;
 }
 /* menu */
 .menu {
     width: 200px;
     height: 100%;
     padding-top: 60px;
-    background-color: #444766;
+    background-color: var(--secondary-color);
     position: absolute;
     top: 0;
     left: 0;
@@ -64,7 +66,7 @@
 }
 .menu-item-link:hover ,
 .active {
-    background-color: #1A1B2D;
+    background-color: var(--primary-color);
     color: white;
 }
 

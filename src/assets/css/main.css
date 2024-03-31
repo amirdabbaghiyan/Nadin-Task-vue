@@ -6,9 +6,16 @@
     box-sizing: border-box;
 }
 :root {
-    --primary-color: #1A1B2D;
-    --secondary-color: #444766;
     --duration-time: 0.25s;
+}
+[data-theme="light"] {
+    --primary-color: #575da0;
+    --secondary-color: #1A1B2D;
+}
+  
+[data-theme="dark"] {
+    --primary-color: #1A1B2D;
+    --secondary-color: #575da0;
 }
 ::selection {
     background-color: var(--secondary-color);
@@ -59,7 +66,9 @@ p {
     font-size: 17px;
     line-height: 2;
 }
-input {
+input,
+select {
+    width: 100%;
     outline: unset;
     padding: 10px 8px;
     background-color: transparent;
@@ -68,6 +77,9 @@ input {
     font-family: inherit;
     font-size: 18px;
     color: white;
+}
+option {
+    color: #000;
 }
 button {
     background-color: transparent;
@@ -84,11 +96,14 @@ img {
     width: min(100%,1000px);
     min-height: 100%;
     margin: 0 auto;
-    padding: 60px 30px;
+    padding: 50px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 40px;
+    row-gap: 20px;
+}
+.container-sm {
+    width: min(90%,600px);
 }
 /* title */
 .title-lg {
@@ -119,6 +134,13 @@ img {
     background-color: #8389db;
 }
 /* form */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
 .form-group {
     width: 100%;
     display: flex;

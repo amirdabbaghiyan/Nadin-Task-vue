@@ -1,13 +1,14 @@
 <template>
   <section class="container">
     <h1 class="home-clock" v-text="currentTime"></h1>
-    <p class="title-lg">good {{time}} {user}</p>
+    <p class="title-lg">good {{time}} {{user}}</p>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
+const user = ref(localStorage.getItem("userName")||'user');
 const hours = ref();
 const minutes = ref();
 const time = ref();

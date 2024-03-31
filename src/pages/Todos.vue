@@ -2,13 +2,15 @@
   <div class="container">
     <h1 class="title-lg">to do</h1>
 
-    <form @submit.prevent="addTodo()" class="form-group">
-      <label for="new-todo">new to do</label>
-      <input
-      id="new-todo"
-      class="todo-input"
-      v-model="newTodo"
-      autocomplete="off">
+    <form @submit.prevent="addTodo()">
+      <div class="form-group">
+        <label for="new-todo">enter to do</label>
+        <input
+        id="new-todo"
+        v-model="newTodo"
+        autocomplete="off"
+        placeholder="new to do">
+      </div>
       <input type="submit" class="btn" value="add">
     </form>
 
@@ -88,11 +90,9 @@ function saveData () {
 </script>
 
 <style>
-.todo-input {
-  margin-bottom: 25px;
-}
 .subline {
   width: 100%;
+  margin-top: 15px;
   padding-bottom: 8px;
   text-align: left;
   position: relative;
@@ -107,7 +107,7 @@ function saveData () {
 }
 .todos {
   width: 100%;
-  height: 150px;
+  height: 210px;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -116,7 +116,11 @@ function saveData () {
   overflow-y: scroll;
 }
 .todos::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  background-color: var(--primary-color);
+}
+.todos::-webkit-scrollbar-thumb {
+  background-color: #6C7072;
 }
 .todo-item {
   width: 90%;
