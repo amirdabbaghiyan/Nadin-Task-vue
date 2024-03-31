@@ -79,6 +79,7 @@ select {
     color: white;
 }
 option {
+    text-transform: capitalize;
     color: #000;
 }
 button {

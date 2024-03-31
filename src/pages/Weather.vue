@@ -1,9 +1,9 @@
 <template>
   <div class="container container-sm">
-    <h1 class="title-lg">weather</h1>
+    <h1 class="title-lg">{{$t("weather")}}</h1>
     <!-- panel search city -->
     <div class="form-group">
-      <label for="city-name">enter city</label>
+      <label for="city-name">{{$t("enter city name")}}</label>
       <input
       v-model.lazy.trim="city"
       placeholder="city name"

@@ -10,19 +10,27 @@
         <!-- menu -->
         <ul class="menu">
             <li class="menu-item">
-                <router-link active-class="active" :to="{name:'home'}" class="menu-item-link btn-primary">{{ $t("dashboard") }}</router-link>
+                <router-link active-class="active" :to="{name:'home'}" class="menu-item-link btn-primary">
+                    {{$t("dashboard")}}
+                </router-link>
             </li>
 
             <li class="menu-item">
-                <router-link active-class="active" :to="{name:'todos'}" class="menu-item-link btn-primary">todos</router-link>
+                <router-link active-class="active" :to="{name:'todos'}" class="menu-item-link btn-primary">
+                    {{$t("todos")}}
+                </router-link>
             </li>
 
             <li class="menu-item">
-                <router-link active-class="active" :to="{name:'weather'}" class="menu-item-link btn-primary">{{ $t("weather") }}</router-link>
+                <router-link active-class="active" :to="{name:'weather'}" class="menu-item-link btn-primary">
+                    {{$t("weather")}}
+                </router-link>
             </li>
 
             <li class="menu-item">
-                <router-link active-class="active" :to="{name:'profile'}" class="menu-item-link btn-primary">profile</router-link>
+                <router-link active-class="active" :to="{name:'profile'}" class="menu-item-link btn-primary">
+                    {{$t("profile")}}
+                </router-link>
             </li>
 
             <!-- <li class="menu-item">

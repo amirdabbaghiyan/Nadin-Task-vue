@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="title-lg">to do</h1>
+    <h1 class="title-lg">{{$t("to do")}}</h1>
 
     <form @submit.prevent="addTodo()">
       <div class="form-group">
-        <label for="new-todo">enter to do</label>
+        <label for="new-todo">{{$t("enter to do")}}</label>
         <input
         id="new-todo"
         v-model="newTodo"
@@ -14,7 +14,7 @@
       <input type="submit" class="btn" value="add">
     </form>
 
-    <h2 class="title-md subline">to do list</h2>
+    <h2 class="title-md subline">{{$t("to do list")}}</h2>
 
     <ul class="todos" v-if="todos.length != 0">
       <li
@@ -42,7 +42,7 @@
       </li>
     </ul>
 
-    <h4 v-if="todos.length === 0">empty list.</h4>
+    <h4 v-if="todos.length === 0">{{$t("empty list")}}</h4>
   </div>
 </template>
 
