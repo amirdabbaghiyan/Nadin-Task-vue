@@ -1,10 +1,12 @@
 <template>
   <div class="container container-sm">
+    <!-- title -->
     <h1 class="title-lg">{{$t("profile")}}</h1>
-    <!-- name -->
+    <!-- profile form -->
     <form
     @submit.prevent="updateProfile()">
       <div class="form-group">
+        <!-- username input -->
         <label for="name">{{$t("enter name")}}</label>
         <input
         id="name"
@@ -14,7 +16,7 @@
         v-model.trim="userName"
         required/>
       </div>
-      <!-- theme -->
+      <!-- theme select -->
       <div class="form-group">
         <label for="theme">{{$t("select theme")}}</label>
         <select
@@ -24,13 +26,16 @@
           <option value="light">{{$t("light")}}</option>
         </select>
       </div>  
-      <!-- locale -->
+      <!-- locale select -->
       <div class="form-group">
         <label for="locale">{{$t("select locale")}}</label>
         <select
         id="locale"
         v-model="$i18n.locale">
-          <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{$t(locale)}}</option>
+          <option
+          v-for="locale in $i18n.availableLocales"
+          :key="`locale-${locale}`"
+          :value="locale">{{$t(locale)}}</option>
         </select>
       </div> 
       <!-- city -->
@@ -80,21 +85,23 @@
 
 <script setup>
 import { ref } from "vue";
+import useTabTitle from "@/hooks/UseTabTitle";
+
+// tab title 
+useTabTitle('Profile');
+
 const userName = ref(localStorage.getItem('userName') || '');
 // const cityName = ref(localStorage.getItem('cityName') || 'Tehran');
 const selectedTheme = ref(localStorage.getItem('theme') || 'dark');
 window.document.body.dataset.theme = localStorage.getItem('theme');
 
 function updateProfile () {
-  // edit profile
+  // edit username
   localStorage.setItem('userName', userName.value);
+  // select city
   // localStorage.setItem('cityName', cityName.value);
-  localStorage.setItem('theme',selectedTheme.value);
   // chang theme
+  localStorage.setItem('theme', selectedTheme.value);
   window.document.body.dataset.theme = selectedTheme.value;
 }
 </script>
-
-<style>
-
-</style>

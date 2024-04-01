@@ -1,20 +1,28 @@
 <template>
   <section class="container">
+    <!-- time -->
     <h1 class="home-clock" v-text="currentTime"></h1>
+    <!-- title -->
     <p class="title-lg" :dir="$i18n.locale == 'persian' ? 'rtl' : 'ltr'">{{$t(`good ${time}`)}} {{user}}</p>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import useTabTitle from "@/hooks/UseTabTitle";
 
-const user = ref(localStorage.getItem("userName")||'user');
+// tab title
+useTabTitle('Dashboard');
+
+// user name
+const user = ref(localStorage.getItem("userName") || 'user');
+
+// clock
 const hours = ref();
 const minutes = ref();
 const time = ref();
 let currentTime = ref();
 
-// clock
 const updateCurrentTime = () => {
   hours.value = new Date().getHours();
   minutes.value = new Date().getMinutes();
@@ -28,7 +36,7 @@ const updateCurrentTime = () => {
 updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
 
-// message
+//  set message
 if ( hours.value < 12 ){
   time.value = 'morning';
 } else if ( hours.value < 13 ){
@@ -46,6 +54,7 @@ if ( hours.value < 12 ){
 .container {
   justify-content: center;
 }
+/* time */
 .home-clock {
   font-family: sans-serif;
   font-size: clamp(60px, 8vw, 120px);

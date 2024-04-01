@@ -30,6 +30,7 @@ html {
     text-align: center;
     font-family: 'Vollkorn', sans-serif;
     line-height: 1.5;
+    position: relative;
     color: white;
 }
 #app {
@@ -157,21 +158,22 @@ label {
 }
 
 /* Responsive */
+@media(max-width:768px) {
+    #app {
+        width: 100%;
+    }
+}
 @media (max-width:600px) {
     p {
         font-size: 16px;
         line-height: 1.8;
-    }
-    /* container */
-    .container {
-        padding: 25px 15px;
     }
 }
 
 @media (max-width:376px) {
     /* btn */
     .btn {
-        padding: 13px;
-        font-size: 12px;
+        font-size: 15px;
+        padding: 10px;
     }
 }

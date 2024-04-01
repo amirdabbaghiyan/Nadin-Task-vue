@@ -1,22 +1,17 @@
 <template>
-  <!-- <SiteLoader/> -->
-  
+  <SiteLoader />
+  <!-- header -->
   <header id="header">
     <Header />
   </header>
-
+  <!-- main -->
   <main id="main">
     <router-view></router-view>
   </main>
-
-  <footer id="footer">
-    <!-- <Footer /> -->
-  </footer>
 </template>
 
 <script setup>
 // components
+import SiteLoader from './components/SiteLoader.vue';
 import Header from './parts/Header';
-// import Footer from './parts/Footer';
-// import SiteLoader from './components/SiteLoader.vue';
 </script>

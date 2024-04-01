@@ -4,8 +4,8 @@ import Home from  '@/pages/Home';
 import Todos from  '@/pages/Todos';
 import Weather from  '@/pages/Weather';
 import Profile from  '@/pages/Profile';
-import Lg from  '@/pages/Lg';
 
+// routes
 const routes = [
     { path: '/' , name: 'home' , component: Home },
 
@@ -13,9 +13,7 @@ const routes = [
 
     { path: '/weather' , name: 'weather' , component: Weather }, 
 
-    { path: '/profile' , name: 'profile' , component: Profile },
-
-    { path: '/lg' , name: 'lg' , component: Lg }
+    { path: '/profile' , name: 'profile' , component: Profile }
 ];
 
 const router = createRouter({

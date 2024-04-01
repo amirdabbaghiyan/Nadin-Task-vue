@@ -1,7 +1,8 @@
 <template>
   <div class="container container-sm">
+    <!-- title -->
     <h1 class="title-lg">{{$t("weather")}}</h1>
-    <!-- panel search city -->
+    <!-- search city panel -->
     <div class="form-group">
       <label for="city-name">{{$t("enter city name")}}</label>
       <input
@@ -12,17 +13,18 @@
       id="city-name"/>
     </div>
 
-    <!-- error -->
+    <!-- error title-->
     <div v-if="error" class="error">
       <p>{{ error }}</p>
     </div>
 
     <!-- weather info -->
     <div v-if="!error && data.city" class="weather">
+      <!-- weather icon -->
       <img class="weather-icon" :src="data.icon" alt="weather-icon" />
-
+      <!-- weather temperature -->
       <h1 class="weather-temperature">{{ data.temperature }}°C</h1>
-
+      <!-- city -->
       <h2 class="weather-city">{{ data.city }}</h2>
     </div>
   </div>
@@ -30,12 +32,17 @@
 
 <script setup>
 import { onMounted, ref, watch } from "vue";
+import useTabTitle from "@/hooks/UseTabTitle";
 
-function getIconUrl(icon) {
+// tab title
+useTabTitle('Weather');
+
+// get weather icon 
+const getIconUrl = (icon) => {
   return `https://murphyslaw.github.io/hosted-assets/weather/${icon.toLowerCase()}.png`;
 }
-
-async function getWeatherData(city) {
+// get weather data
+const getWeatherData = async (city) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=16a38d83af836c90ee6837bcc746a9d6`;
   let data = {};
 
@@ -74,10 +81,12 @@ const setData = async () => {
 }
 
 onMounted(setData);
+// update weather data
 watch(city, setData);
 </script>
 
 <style>
+/* weather info */
 .weather {
   display: flex;
   flex-direction: column;
@@ -96,6 +105,7 @@ watch(city, setData);
   font-size: clamp(30px, 3vw, 60px);
   font-weight: bold;
 }
+/* error title */
 .error {
   margin-top: 15px;
   font-size: clamp(20px, 1vw, 40px);

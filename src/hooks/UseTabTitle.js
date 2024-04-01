@@ -2,7 +2,7 @@ import { onMounted } from "vue";
 
 const useTabTitle = (TabTitleText) => {
     onMounted(() => 
-        document.title = `Rest API - ${TabTitleText}`
+        document.title = `Nadin Soft - ${TabTitleText}`
     )
 };
 
