@@ -9,6 +9,4 @@ import './assets/css/main.css';
 // components
 import App from './App.vue';
 
-
-
 createApp(App).use(router).use(i18n).mount('#app');

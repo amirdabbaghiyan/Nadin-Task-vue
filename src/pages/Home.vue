@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h1 class="home-clock" v-text="currentTime"></h1>
-    <p class="title-lg">{{$t("good")}} {{time}} {{user}}</p>
+    <p class="title-lg" :dir="$i18n.locale == 'persian' ? 'rtl' : 'ltr'">{{$t(`good ${time}`)}} {{user}}</p>
   </section>
 </template>
 
@@ -47,6 +47,7 @@ if ( hours.value < 12 ){
   justify-content: center;
 }
 .home-clock {
+  font-family: sans-serif;
   font-size: clamp(60px, 8vw, 120px);
 }
 </style>

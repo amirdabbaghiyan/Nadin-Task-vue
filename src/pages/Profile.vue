@@ -20,8 +20,8 @@
         <select
         id="theme"
         v-model="selectedTheme">
-          <option selected>{{$t("dark")}}</option>
-          <option>{{$t("light")}}</option>
+          <option value="dark" selected>{{$t("dark")}}</option>
+          <option value="light">{{$t("light")}}</option>
         </select>
       </div>  
       <!-- locale -->
@@ -30,9 +30,7 @@
         <select
         id="locale"
         v-model="$i18n.locale">
-          <!-- <option selected>{{$t("english")}}</option>
-          <option>{{$t("persian")}}</option> -->
-          <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{locale}}</option>
+          <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{$t(locale)}}</option>
         </select>
       </div> 
       <!-- city -->
@@ -82,27 +80,16 @@
 
 <script setup>
 import { ref } from "vue";
-
 const userName = ref(localStorage.getItem('userName') || '');
 // const cityName = ref(localStorage.getItem('cityName') || 'Tehran');
 const selectedTheme = ref(localStorage.getItem('theme') || 'dark');
-// const selectedLocale = ref(localStorage.getItem('locale') || 'en');
 window.document.body.dataset.theme = localStorage.getItem('theme');
 
 function updateProfile () {
   // edit profile
   localStorage.setItem('userName', userName.value);
   // localStorage.setItem('cityName', cityName.value);
-
   localStorage.setItem('theme',selectedTheme.value);
-
-  // if(selectedLocale.value == "english" || selectedLocale.value == "انگلیسی" ){
-  //   localStorage.setItem('locale','en');
-  // }else{
-  //   localStorage.setItem('locale','fa');
-  // }
-
-  // console.log(localStorage.getItem('local'))
   // chang theme
   window.document.body.dataset.theme = selectedTheme.value;
 }
