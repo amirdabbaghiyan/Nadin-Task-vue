@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import useTabTitle from "@/hooks/UseTabTitle";
 
 // tab title
@@ -61,28 +61,25 @@ const getWeatherData = async (city) => {
 }
 
 const error = ref();
-const city = ref(localStorage.getItem("cityName"));
+const city = ref();
 const data = ref({
   city: null,
   temperature: null,
   icon: null
 });
 
-const setData = async () => {
-  try {
-    const weatherData = await getWeatherData(city.value);
+watch(city, async () => {
+    try {
+      const weatherData = await getWeatherData(city.value);
 
-    data.value.city = weatherData.name;
-    data.value.temperature = Math.round(weatherData.main.temp);
-    data.value.icon = getIconUrl(weatherData.weather[0].main);
-  } catch (err) {
-    error.value = err.message;
+      data.value.city = weatherData.name;
+      data.value.temperature = Math.round(weatherData.main.temp);
+      data.value.icon = getIconUrl(weatherData.weather[0].main);
+    } catch (err) {
+      error.value = err.message;
+    }
   }
-}
-
-onMounted(setData);
-// update weather data
-watch(city, setData);
+)
 </script>
 
 <style>
