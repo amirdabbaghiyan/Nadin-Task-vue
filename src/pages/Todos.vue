@@ -62,6 +62,10 @@ import useTabTitle from '@/hooks/UseTabTitle';
 useTabTitle('Todos');
 
 const newTodo = ref('');
+const defaultData = [{
+  done: false,
+  content: 'Write a blog post'
+}]
 const todosData = JSON.parse(localStorage.getItem('todos'));
 const todos = ref(todosData);
 
