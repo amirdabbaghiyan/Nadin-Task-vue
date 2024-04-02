@@ -49,7 +49,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--bg-theme) no-repeat center center;
+    background: var(--bg-theme) no-repeat 30% center;
     background-size: cover;
 }
 #main {
