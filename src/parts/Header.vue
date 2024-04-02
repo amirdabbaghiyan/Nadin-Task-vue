@@ -101,7 +101,7 @@ const showMenu = () => show.value = !show.value;
     text-transform: uppercase;
     letter-spacing: 2px;
     font: 15px "montserrat";
-    color: #fff;
+    color: #000;
     transition-duration: var(--duration-time);
 }
 .menu-item-link:hover ,
