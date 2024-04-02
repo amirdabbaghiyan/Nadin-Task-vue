@@ -66,7 +66,7 @@ const defaultData = [{
   done: false,
   content: 'Write a blog post'
 }]
-const todosData = JSON.parse(localStorage.getItem('todos'));
+const todosData = JSON.parse(localStorage.getItem('todos')) || defaultData;
 const todos = ref(todosData);
 
 // add todo
