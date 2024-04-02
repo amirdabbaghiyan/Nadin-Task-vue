@@ -53,10 +53,11 @@ if ( hours.value < 12 ){
 <style scoped>
 .container {
   justify-content: center;
+  color: white;
 }
 /* time */
 .home-clock {
-  font-family: sans-serif;
+  font-family:  'Times New Roman', Times, serif;
   font-size: clamp(60px, 8vw, 120px);
 }
 </style>

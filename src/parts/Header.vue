@@ -66,7 +66,12 @@ const showMenu = () => show.value = !show.value;
 .navbar {
     width: 100%;
     height: 60px;
-    background-color: var(--secondary-color); 
+    padding: 5px 40px;
+    background: var(--bg-nav-color);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 /* nav icon */
 .website-logo {
@@ -77,77 +82,48 @@ const showMenu = () => show.value = !show.value;
     width: 200px;
     min-height: 100%;
     padding-top: 60px;
-    background-color: var(--secondary-color);
+    background: var(--bg-menu-color);
+    backdrop-filter: blur(9.1px);
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 98;
+    transform: translateX(-100%);
+    visibility: hidden;
+    opacity: 0;
     display: flex;
     flex-direction: column;
-}
-.menu-item {
-    padding: 3px;
+    transition-duration: var(--duration-time);
 }
 .menu-item-link {
     width: 100%;
     padding: 16px 30px;
-    border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font: 15px "montserrat";
-    color: #C5C5C5;
-    transition-duration: 0.3s;
+    color: #fff;
+    transition-duration: var(--duration-time);
 }
 .menu-item-link:hover ,
 .active {
-    background-color: var(--primary-color);
+    background-color: var(--btn-hover-color);
     color: white;
 }
 /* menu hamburger */
 .menu-hamburger {
-    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+    color: #fff;
+    transition-duration: var(--duration-time);
+} 
+.menu-hamburger:hover {
+    color: #000;
 }
-/* responsive */
-@media(max-width:768px) {
-    /* navbar */
-    .navbar {
-        height: 60px;
-        padding: 0 5%;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-    }
-    /* nav icon */
-    .website-logo {
-        height: 90%;
-    }
-    /* menu */
-    .menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 99;
-        transform: translateX(-100%);
-        visibility: hidden;
-        opacity: 0;
-        transition-duration: var(--duration-time);
-    }
-    .show-menu {
-        visibility: visible;
-        opacity: 1;
-        transform: translateX(0);
-    }
-    /* menu hamburger */
-    .menu-hamburger {
-        display: flex;
-        font-size: 28px;
-        cursor: pointer;
-        position: relative;
-        z-index: 99;
-        transition-duration: var(--duration-time);
-    } 
-    .menu-hamburger:hover {
-        color: var(--primary-color);
-    }
+.show-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
 }
 </style>

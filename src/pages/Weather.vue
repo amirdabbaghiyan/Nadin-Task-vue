@@ -1,7 +1,7 @@
 <template>
   <div class="container container-sm">
     <!-- title -->
-    <h1 class="title-lg">{{$t("weather")}}</h1>
+    <h1 class="title-lg jj">{{$t("weather")}}</h1>
     <!-- search city panel -->
     <div class="form-group">
       <label for="city-name">{{$t("enter city name")}}</label>
@@ -92,6 +92,7 @@ watch(city, setData);
   flex-direction: column;
   align-items: center;
   row-gap: 12px;
+  color: white;
 }
 .weather-icon {
   width: min(80%,170px);

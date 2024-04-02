@@ -111,7 +111,7 @@ const saveData = () => {
 .subline::after {
   content: "";
   width: 100%;
-  border-top: 2px solid #A0A5D7;
+  border-top: 2px solid var(--text-color);
   position: absolute;
   top: 100%;
   left: 0;
@@ -140,7 +140,8 @@ const saveData = () => {
   width: 90%;
   padding: 10px 15px;
   border-radius: 5px;
-  border: 1px solid #6C7072;
+  border: 2px solid var(--text-dark-color);
+  background-color: #c7c3c3c0;
   display: flex;
   justify-content: space-between;
   align-items: center;

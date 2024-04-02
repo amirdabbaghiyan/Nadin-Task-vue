@@ -26,7 +26,7 @@ document.onreadystatechange = ()=>{
 }
 /* loader */
 .site-loader {
-  background-color: var(--primary-color);
+  background-color: var(--btn-hover-color);
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -42,8 +42,8 @@ document.onreadystatechange = ()=>{
 /* loader */
 .loader {
   padding: 40px;
-  border: 6px solid var(--primary-color);
-  border-top-color: var(--secondary-color);
+  border: 6px solid transparent;
+  border-top-color: white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

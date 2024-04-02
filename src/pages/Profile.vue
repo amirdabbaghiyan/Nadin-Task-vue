@@ -39,10 +39,10 @@
         </select>
       </div> 
       <!-- city -->
-      <!-- <div class="form-group">
-        <label for="local">{{$t("select local")}}</label>
+      <div class="form-group">
+        <label for="city">{{$t("select city")}}</label>
         <select
-        id="local"
+        id="city"
         v-model="cityName">
           <option value="Tehran" selected>{{$t("Tehran")}}</option>
           <option value="Gilan">{{$t("Gilan")}}</option>
@@ -73,7 +73,7 @@
           <option value="Yasuj">{{$t("Yasuj")}}</option>
           <option value="Karaj">{{$t("Karaj")}}</option>
         </select>
-      </div> -->
+      </div>
       <!-- save btn -->
       <input
       type="submit"
@@ -91,7 +91,7 @@ import useTabTitle from "@/hooks/UseTabTitle";
 useTabTitle('Profile');
 
 const userName = ref(localStorage.getItem('userName') || '');
-// const cityName = ref(localStorage.getItem('cityName') || 'Tehran');
+const cityName = ref(localStorage.getItem('cityName') || 'Tehran');
 const selectedTheme = ref(localStorage.getItem('theme') || 'dark');
 window.document.body.dataset.theme = localStorage.getItem('theme');
 
@@ -99,7 +99,7 @@ function updateProfile () {
   // edit username
   localStorage.setItem('userName', userName.value);
   // select city
-  // localStorage.setItem('cityName', cityName.value);
+  localStorage.setItem('cityName', cityName.value);
   // chang theme
   localStorage.setItem('theme', selectedTheme.value);
   window.document.body.dataset.theme = selectedTheme.value;
